@@ -1,0 +1,22 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui" template="/layout.xhtml">
+
+	<ui:define name="pageContent">
+
+		<h:form>
+			<h3>Description</h3>
+			<p:inputTextarea value="#{adoptionBean.adopt.description}" rows="5" cols="30" counter="display"
+				maxlength="5000" counterTemplate="{0} characters remaining."
+				autoResize="" />
+			<h:outputText id="display" />
+			<p:commandButton value="Continue"
+				action="#{adoptionBean.CreateAdoption()}"></p:commandButton>
+			<p:commandButton value="Cancel"
+				action="#{adoptionBean.redirectRefugee()}"></p:commandButton>
+
+		</h:form>
+	</ui:define>
+</ui:composition>

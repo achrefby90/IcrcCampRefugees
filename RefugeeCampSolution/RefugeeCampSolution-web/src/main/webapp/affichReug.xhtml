@@ -1,0 +1,36 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui" template="/layout.xhtml">
+	<ui:define name="pageContent">
+
+		<h:form id="form">
+			<p:dataTable var="p" value="#{meBean.refugees}">
+				<p:column headerText="First Name">
+					<h:outputText value="#{p.firstName}" />
+				</p:column>
+				<p:column headerText="Last Name">
+					<h:outputText value="#{p.lastName}" />
+				</p:column>
+				<p:column headerText="Year of birth">
+					<h:outputText value="#{p.age_Year}" />
+				</p:column>
+
+				<p:column headerText="Nationality">
+					<h:outputText value="#{p.nationality}" />
+
+				</p:column>
+				<p:column>
+
+					<p:commandButton value="Demand Apodtion"
+						action="#{adoptionBean.redirecttoadoption(p)}"></p:commandButton>
+				</p:column>
+
+
+			</p:dataTable>
+
+		</h:form>
+	</ui:define>
+
+</ui:composition>

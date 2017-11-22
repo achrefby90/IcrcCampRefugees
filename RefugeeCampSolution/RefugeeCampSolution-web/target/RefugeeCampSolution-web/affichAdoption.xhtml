@@ -1,0 +1,64 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html" template="/admin.xhtml">
+
+	<ui:define name="pageContentAdmin">
+
+		<h:form>
+
+			<h:dataTable value="#{adoptionBean.adoptions}" var="c" border="1">
+				<f:facet name="header">All ADOPTIONS DEMANDS</f:facet>
+
+				<h:column>
+					<f:facet name="header">DESCRIPTION</f:facet>
+					<h:outputText value="#{c.description}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">REFUGEE NAME</f:facet>
+					<h:outputText value="#{c.refug.firstName}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">REFUGEE LASTNAME</f:facet>
+					<h:outputText value="#{c.refug.lastName}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">REFUGEE NATIONALITE</f:facet>
+					<h:outputText value="#{c.refug.nationality}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">REFUGEE BIRTH YEAR</f:facet>
+					<h:outputText value="#{c.refug.age_Year}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">REFUGEE HEALTH STATUS</f:facet>
+					<h:outputText value="#{c.refug.healthStatus}" />
+				</h:column>
+
+				<h:column>
+					<f:facet name="header"> USER EMAIL </f:facet>
+					<h:outputText value="#{c.user.email}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header"> State </f:facet>
+					<h:outputText value="#{c.etat}" />
+				</h:column>
+
+				<h:column>
+
+					<h:commandButton value="Reply"
+						action="#{adoptionBean.redirectmail(c)}"></h:commandButton>
+					<h:commandButton value="Delete"
+						action="#{adoptionBean.supprimer(c)}"></h:commandButton>
+
+				</h:column>
+
+
+
+
+
+			</h:dataTable>
+
+		</h:form>
+	</ui:define>
+</ui:composition>
